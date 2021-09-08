@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.cyan,
         fontFamily: 'Lato'
       ),
-      home: ProdctsOverviemPage(),
+      home: ProductsOverviewPage(),
       routes: {
         AppRoutes.PRODUCT_DETAIL: (ctx) => ProductDetailPage(),
       },
