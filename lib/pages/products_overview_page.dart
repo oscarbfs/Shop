@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shop/components/badge.dart';
 import 'package:shop/components/product_grid.dart';
 import 'package:shop/models/cart.dart';
+import 'package:shop/utils/app_routes.dart';
 
 enum FilterOptions {
   Favorite,
@@ -17,7 +18,6 @@ class ProductsOverviewPage extends StatefulWidget {
 }
 
 class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
-
   bool _showFavoriteOnly = false;
 
   @override
@@ -39,17 +39,19 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
             ],
             onSelected: (FilterOptions selectedValue) {
               setState(() {
-              if(selectedValue == FilterOptions.Favorite) {
-                _showFavoriteOnly = true;
-              }else{
-                _showFavoriteOnly = false;
-              }
+                if (selectedValue == FilterOptions.Favorite) {
+                  _showFavoriteOnly = true;
+                } else {
+                  _showFavoriteOnly = false;
+                }
               });
             },
           ),
           Consumer<Cart>(
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppRoutes.CART);
+              },
               icon: Icon(Icons.shopping_cart),
             ),
             builder: (ctx, cart, child) => Badge(
