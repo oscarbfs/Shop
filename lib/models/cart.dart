@@ -1,13 +1,14 @@
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:shop/models/cart_item.dart';
 import 'package:shop/models/product.dart';
 
 class Cart with ChangeNotifier {
   Map<String, CartItem> _items = {};
-  Map<String, CartItem> get items {
-    return {...items};
+
+  get items {
+    return {..._items};
   }
 
   int get itemsCount {
