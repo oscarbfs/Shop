@@ -10,7 +10,7 @@ class AppDrawer extends StatelessWidget {
       child: Column(
         children: [
           AppBar(
-            title: Text('Bem-vindo Usuario!'),
+            title: Text('Bem vindo Uusário!'),
             automaticallyImplyLeading: false,
           ),
           Divider(),
@@ -18,7 +18,9 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.shop),
             title: Text('Loja'),
             onTap: () {
-              Navigator.of(context).pushReplacementNamed(AppRoutes.HOME);
+              Navigator.of(context).pushReplacementNamed(
+                AppRoutes.HOME,
+              );
             },
           ),
           Divider(),
@@ -26,7 +28,9 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.payment),
             title: Text('Pedidos'),
             onTap: () {
-              Navigator.of(context).pushReplacementNamed(AppRoutes.ORDERS);
+              Navigator.of(context).pushReplacementNamed(
+                AppRoutes.ORDERS,
+              );
             },
           ),
         ],

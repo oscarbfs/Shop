@@ -31,8 +31,10 @@ class CartItemWidget extends StatelessWidget {
         ),
       ),
       onDismissed: (_) {
-        Provider.of<Cart>(context, listen: false)
-            .removeItem(cartItem.productId);
+        Provider.of<Cart>(
+          context,
+          listen: false,
+        ).removeItem(cartItem.productId);
       },
       child: Card(
         margin: const EdgeInsets.symmetric(
@@ -40,7 +42,7 @@ class CartItemWidget extends StatelessWidget {
           vertical: 4,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8),
           child: ListTile(
             leading: CircleAvatar(
               child: Padding(

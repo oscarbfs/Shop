@@ -58,6 +58,7 @@ class CartPage extends StatelessWidget {
                         context,
                         listen: false,
                       ).addOrder(cart);
+
                       cart.clear();
                     },
                   ),
@@ -70,7 +71,7 @@ class CartPage extends StatelessWidget {
               itemCount: items.length,
               itemBuilder: (ctx, i) => CartItemWidget(items[i]),
             ),
-          )
+          ),
         ],
       ),
     );
