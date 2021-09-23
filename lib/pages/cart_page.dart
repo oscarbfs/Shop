@@ -71,7 +71,7 @@ class CartPage extends StatelessWidget {
               itemCount: items.length,
               itemBuilder: (ctx, i) => CartItemWidget(items[i]),
             ),
-          ),
+          )
         ],
       ),
     );

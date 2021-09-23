@@ -31,7 +31,7 @@ class CartItemWidget extends StatelessWidget {
         ),
       ),
       confirmDismiss: (_) {
-        return showDialog(
+        return showDialog<bool>(
           context: context,
           builder: (ctx) => AlertDialog(
             title: Text('Tem Certeza?'),

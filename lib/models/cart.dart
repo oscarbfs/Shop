@@ -74,7 +74,6 @@ class Cart with ChangeNotifier {
         ),
       );
     }
-
     notifyListeners();
   }
 
