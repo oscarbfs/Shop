@@ -56,7 +56,7 @@ class CartPage extends StatelessWidget {
               itemCount: items.length,
               itemBuilder: (ctx, i) => CartItemWidget(items[i]),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -72,7 +72,7 @@ class CartButton extends StatefulWidget {
   final Cart cart;
 
   @override
-  State<CartButton> createState() => _CartButtonState();
+  _CartButtonState createState() => _CartButtonState();
 }
 
 class _CartButtonState extends State<CartButton> {
@@ -93,6 +93,7 @@ class _CartButtonState extends State<CartButton> {
                 ? null
                 : () async {
                     setState(() => _isLoading = true);
+
                     await Provider.of<OrderList>(
                       context,
                       listen: false,

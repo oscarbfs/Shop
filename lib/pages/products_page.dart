@@ -9,7 +9,10 @@ class ProductsPage extends StatelessWidget {
   const ProductsPage({Key? key}) : super(key: key);
 
   Future<void> _refreshProducts(BuildContext context) {
-    return Provider.of<ProductList>(context, listen: false).loadProducts();
+    return Provider.of<ProductList>(
+      context,
+      listen: false,
+    ).loadProducts();
   }
 
   @override
@@ -38,7 +41,7 @@ class ProductsPage extends StatelessWidget {
             itemCount: products.itemsCount,
             itemBuilder: (ctx, i) => Column(
               children: [
-                ProductItem(product: products.items[i]),
+                ProductItem(products.items[i]),
                 Divider(),
               ],
             ),

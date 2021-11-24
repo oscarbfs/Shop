@@ -7,9 +7,9 @@ import 'package:shop/utils/app_routes.dart';
 
 class ProductItem extends StatelessWidget {
   final Product product;
-  const ProductItem({
+  const ProductItem(
+    this.product, {
     Key? key,
-    required this.product,
   }) : super(key: key);
 
   @override
@@ -64,9 +64,7 @@ class ProductItem extends StatelessWidget {
                     } on HttpException catch (error) {
                       msg.showSnackBar(
                         SnackBar(
-                          content: Text(
-                            error.toString(),
-                          ),
+                          content: Text(error.toString()),
                         ),
                       );
                     }

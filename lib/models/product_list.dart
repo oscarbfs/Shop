@@ -21,8 +21,9 @@ class ProductList with ChangeNotifier {
   Future<void> loadProducts() async {
     _items.clear();
 
-    final response =
-        await http.get(Uri.parse('${Constants.PRODUCT_BASE_URL}.json'));
+    final response = await http.get(
+      Uri.parse('${Constants.PRODUCT_BASE_URL}.json'),
+    );
     if (response.body == 'null') return;
     Map<String, dynamic> data = jsonDecode(response.body);
     data.forEach((productId, productData) {
@@ -103,8 +104,6 @@ class ProductList with ChangeNotifier {
       _items[index] = product;
       notifyListeners();
     }
-
-    return Future.value();
   }
 
   Future<void> removeProduct(Product product) async {
@@ -123,7 +122,7 @@ class ProductList with ChangeNotifier {
         _items.insert(index, product);
         notifyListeners();
         throw HttpException(
-          msg: 'Não foi possivel excluir o produto',
+          msg: 'Não foi possível excluir o produto.',
           statusCode: response.statusCode,
         );
       }

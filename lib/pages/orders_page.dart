@@ -5,12 +5,6 @@ import 'package:shop/components/order.dart';
 import 'package:shop/models/order_list.dart';
 
 class OrdersPage extends StatelessWidget {
-  const OrdersPage({Key? key}) : super(key: key);
-
-  Future<void> _refreshProducts(BuildContext context) {
-    return Provider.of<OrderList>(context, listen: false).loadOrders();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,15 +18,14 @@ class OrdersPage extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           } else if (snapshot.error != null) {
-            return Center(child: Text('Ocorreu um erro!'));
+            return Center(
+              child: Text('Ocorreu um erro!'),
+            );
           } else {
-            return RefreshIndicator(
-              onRefresh: () => _refreshProducts(context),
-              child: Consumer<OrderList>(
-                builder: (ctx, orders, child) => ListView.builder(
-                  itemCount: orders.itemsCount,
-                  itemBuilder: (ctx, i) => OrderWidget(order: orders.items[i]),
-                ),
+            return Consumer<OrderList>(
+              builder: (ctx, orders, child) => ListView.builder(
+                itemCount: orders.itemsCount,
+                itemBuilder: (ctx, i) => OrderWidget(order: orders.items[i]),
               ),
             );
           }

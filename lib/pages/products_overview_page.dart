@@ -79,16 +79,7 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
         ],
       ),
       body: _isLoading
-          ? Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircularProgressIndicator(),
-                  SizedBox(height: 10),
-                  Text('Carregando os produtos, aguarde por favor'),
-                ],
-              ),
-            )
+          ? Center(child: CircularProgressIndicator())
           : ProductGrid(_showFavoriteOnly),
       drawer: AppDrawer(),
     );

@@ -31,10 +31,8 @@ class Product with ChangeNotifier {
       _toggleFavorite();
 
       final response = await http.patch(
-        Uri.parse('${Constants.PRODUCT_BASE_URL}/${id}.json'),
-        body: jsonEncode(
-          {"isFavorite": isFavorite},
-        ),
+        Uri.parse('${Constants.PRODUCT_BASE_URL}/$id.json'),
+        body: jsonEncode({"isFavorite": isFavorite}),
       );
 
       if (response.statusCode >= 400) {
